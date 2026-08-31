@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ assistant_name }} Assistant</title>
+    <link rel="stylesheet" href="/static/css/app.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <button
+        class="robot-button robot-button--idle"
+        id="robot-button"
+        type="button"
+        aria-label="Toggle listening"
+      >
+        <img class="robot-image" id="robot-image" src="/webAssets/qq2.png" alt="" />
+      </button>
+
+      <img class="photo-preview hidden" id="photo-preview" alt="" />
+
+      <button class="upload-button" id="upload-button" type="button" aria-label="Open image upload">
+        +
+      </button>
+
+      <div class="upload-modal hidden" id="upload-modal" aria-hidden="true">
+        <div class="upload-modal__backdrop" id="upload-backdrop"></div>
+        <div class="upload-modal__panel" role="dialog" aria-modal="true" aria-label="Upload picture">
+          <input
+            class="upload-input"
+            id="image-input"
+            type="file"
+            accept="image/*"
+            aria-label="Choose picture"
+          />
+        </div>
+      </div>
+
+      <div class="sr-only" aria-live="polite" id="status-text">Idle</div>
+      <div class="error-toast hidden" id="error-toast"></div>
+      <div class="memory-toast hidden" id="memory-toast"></div>
+      <div class="warning-toast hidden" id="secure-warning">
+        Microphone access may require HTTPS on iPhone.
+      </div>
+    </main>
+
+    <audio id="assistant-audio" preload="none"></audio>
+    <script src="/static/js/app.js" defer></script>
+  </body>
+</html>

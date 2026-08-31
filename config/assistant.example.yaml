@@ -1,0 +1,62 @@
+assistant:
+  name: "Marko"
+  personality: |-
+    You are a thoughtful local assistant. Be warm, candid, and concise.
+    Ask one useful follow-up when a request is ambiguous, and never pretend
+    to know something you do not. Replace this paragraph with your own style.
+
+llm:
+  provider: "ollama" # "ollama" or "openai" for an OpenAI-compatible server
+  base_url: "http://127.0.0.1:11434"
+  model: "your-local-model"
+  temperature: 0.7
+  num_ctx: 8192
+  request_timeout_seconds: 180
+
+# Optional. The app never stops a model server it did not launch itself.
+local_process:
+  enabled: false
+  command: [] # Example: ["ollama", "serve"]
+  working_directory: ""
+  startup_timeout_seconds: 30
+
+stt:
+  model_size: "base"
+  device: "auto"
+  compute_type: "auto"
+  language: "en"
+
+tts:
+  binary_path: "piper"
+  model_path: "voices/your-voice.onnx"
+  config_path: "voices/your-voice.onnx.json"
+  speaker:
+
+server:
+  host: "127.0.0.1"
+  port: 8000
+  public_base_url: ""
+  ssl_certfile: ""
+  ssl_keyfile: ""
+
+memory:
+  max_items: 100
+  inject_limit: 20
+
+tools:
+  weather:
+    enabled: false
+    default_location: ""
+    geocoding_country_code: ""
+  obsidian:
+    enabled: true
+    vault_path: "C:/path/to/your/ObsidianVault"
+    inbox_folder: "Inbox"
+    daily_notes_folder: "Daily"
+    search_result_limit: 5
+    write_requires_explicit_instruction: true
+    task_note_title: "Tasks"
+
+inbox:
+  db_path: "data/inbox.sqlite"
+  confidence_threshold: 0.68

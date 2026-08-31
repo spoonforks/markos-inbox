@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
+      - run: Copy-Item config/assistant.example.yaml config/assistant.yaml
+      - run: python -m pytest -q tests
+        env:
+          MARKO_INBOX_SYNC_TOKEN: ci-only-token-with-at-least-32-characters

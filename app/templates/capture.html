@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#e8dfd0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="{{ assistant_name }} Inbox" />
+    <title>{{ assistant_name }} Inbox</title>
+    <link rel="manifest" href="/capture.webmanifest" />
+    <link rel="stylesheet" href="/static/css/capture.css" />
+  </head>
+  <body>
+    <main class="capture-shell">
+      <section class="capture-panel">
+        <h1 class="capture-title">Inbox</h1>
+
+        <section id="unlock-panel" class="unlock-panel hidden" aria-labelledby="unlock-heading">
+          <h2 id="unlock-heading">Unlock synchronization</h2>
+          <p>Enter the private sync token configured on your Marko computer.</p>
+          <label for="sync-token">Sync token</label>
+          <div class="unlock-row">
+            <input id="sync-token" type="password" autocomplete="current-password" />
+            <button id="unlock-button" class="action-button" type="button">Unlock</button>
+          </div>
+        </section>
+
+        <label class="sr-only" for="thought-input">Inbox item</label>
+        <textarea
+          id="thought-input"
+          class="thought-input"
+          rows="5"
+          placeholder="Tell me"
+          autocapitalize="sentences"
+          autocomplete="off"
+          spellcheck="true"
+        ></textarea>
+
+        <div class="action-row">
+          <button id="undo-button" class="action-button action-button--secondary" type="button">
+            Undo
+          </button>
+          <button id="enter-button" class="action-button" type="button">Enter</button>
+        </div>
+
+        <p id="status-text" class="status-text" aria-live="polite"></p>
+
+        <section class="list-panel" aria-labelledby="unpublished-heading">
+          <div class="list-header">
+            <h2 id="unpublished-heading" class="list-title">Unpublished Items</h2>
+            <span id="item-count" class="item-count">0</span>
+          </div>
+          <div id="items-list" class="items-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/static/js/capture.js" defer></script>
+  </body>
+</html>

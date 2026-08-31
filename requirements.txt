@@ -1,0 +1,10 @@
+av==17.0.1
+fastapi==0.116.1
+faster-whisper==1.2.0
+httpx==0.28.1
+Jinja2==3.1.6
+piper-tts==1.4.2
+python-dotenv==1.1.1
+python-multipart==0.0.20
+PyYAML==6.0.2
+uvicorn[standard]==0.35.0
