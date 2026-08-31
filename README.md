@@ -1,13 +1,10 @@
 # Marko's Inbox
 
-A local-first Inbox and assistant for capturing loose ideas, classifying them
+Your local inbox and assistant for capturing loose ideas, classifying them
 with your own local model, reviewing uncertain results, and publishing notes to
 an Obsidian vault. It includes a Windows desktop interface and an installable,
 offline-capable mobile Inbox.
 
-This repository contains no original conversations, memories, databases,
-recordings, model weights, voice models, secrets, certificates, or personal
-configuration. Runtime data is created under the ignored `data/` directory.
 
 ## What is included
 
